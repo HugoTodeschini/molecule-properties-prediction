@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: servier
+Version: 1.0.0
+Summary: Package to train a machine learning model to predict P1 molecule properties
+Home-page: https://github.com/HugoTodeschini/molecule-properties-prediction.git
+Author: Hugo Todeschini
+Author-email: todeschinihugo@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# molecule-properties-prediction
+Deep learning models to predict molecule properties based on their "smiles"
+
+

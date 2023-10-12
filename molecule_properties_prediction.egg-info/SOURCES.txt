@@ -1,0 +1,6 @@
+README.md
+setup.py
+molecule_properties_prediction.egg-info/PKG-INFO
+molecule_properties_prediction.egg-info/SOURCES.txt
+molecule_properties_prediction.egg-info/dependency_links.txt
+molecule_properties_prediction.egg-info/top_level.txt
