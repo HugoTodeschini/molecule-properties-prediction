@@ -3,4 +3,5 @@ setup.py
 servier.egg-info/PKG-INFO
 servier.egg-info/SOURCES.txt
 servier.egg-info/dependency_links.txt
+servier.egg-info/entry_points.txt
 servier.egg-info/top_level.txt

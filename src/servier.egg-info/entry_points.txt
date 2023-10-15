@@ -1,0 +1,5 @@
+[console_scripts]
+servier_evaluate = model1:evaluate
+servier_predict = model1:predict
+servier_train = model1:train
+
