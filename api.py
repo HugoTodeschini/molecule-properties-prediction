@@ -17,10 +17,5 @@ def predict_P1(smile):
         P1_predicted = 0
     return(jsonify({"P1_predicted": P1_predicted}))
 
-
-@app.route('/', methods=['GET'])
-def index():
-    return("test")
-
 if __name__ == "__main__":
     app.run()
