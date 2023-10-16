@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 
 from sklearn.model_selection import train_test_split, KFold
+from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense
@@ -76,7 +77,20 @@ def train():
     return({"Model1": model1})
 
 def evaluate():
-    return("evaluate model 1")
+    X_val = pd.read_csv('../X_val.csv',index_col = 0)
+    y_val = pd.read_csv('../y_val.csv',index_col = 0)
+    model1 = tf.keras.models.load_model('model1.keras')
+
+    predictions = pd.DataFrame(model1.predict(X_val),columns=['Prediction'])
+    predictions["P1"] = 0
+    predictions.loc[predictions['Prediction'] > 0.5, "P1"] = 1
+
+    accuracy = accuracy_score(y_val, predictions["P1"])
+    recall = recall_score(y_val, predictions["P1"])
+    precision = precision_score(y_val, predictions["P1"])
+    f1 = f1_score(y_val, predictions["P1"])
+    metrics = {"accuracy": accuracy, "recall":recall, "precision":precision,"f1_score": f1}
+    return(metrics)
 
 def predict():
     parser = argparse.ArgumentParser()

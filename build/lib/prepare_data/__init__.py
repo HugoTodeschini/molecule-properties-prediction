@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 from rdkit.Chem import rdMolDescriptors, MolFromSmiles, rdmolfiles, rdmolops
 
