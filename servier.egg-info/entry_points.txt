@@ -1,3 +1,0 @@
-[console_scripts]
-hello-world = timmins:hello_world
-

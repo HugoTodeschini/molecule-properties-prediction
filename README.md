@@ -3,6 +3,11 @@ Deep learning models to predict molecule properties based on their "smiles"
 
 Description: This python package allows you to train and test a deep learning model that predicts the P1 property of molecules from their “smile”.
 
+Prerequisites:
+
+To use this package put the "dataset_single.csv" file int folder which contains this package.
+This package has been develpped with python 3.6.13
+
 Installation:
 
 Install all packages with the command:
