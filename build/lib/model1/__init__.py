@@ -56,7 +56,10 @@ def neural_model_1(x, y, x_test, y_test, neurons):
     
     return model, score
 
+#Train neural_model_1 to predict P1 class
 def train():
+
+    #User can choose the number of neurons by layer of the neural network
     parser = argparse.ArgumentParser()
     parser.add_argument("-neurons", help="number of neurons by layer of the neural network",type=int)
     args = parser.parse_args()
@@ -68,15 +71,18 @@ def train():
     X_train, X_test, y_train, y_test = train_test_split(pd.DataFrame(df_features.tolist()), df_single['P1'], test_size=0.2, random_state=1)
     X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.25, random_state=1)
     
+    #We save our validation dataset which will be used to evaluate our model
     X_val.to_csv('../X_val.csv')
     y_val.to_csv('../y_val.csv')
+
     model1 = neural_model_1(X_train, y_train, X_test, y_test, args.neurons)[0]
     model1.save("model1.keras")
 
-    print("Model 1 trained")
     return({"Model1": model1})
 
+#Evaluates the model's performance 
 def evaluate():
+    
     X_val = pd.read_csv('../X_val.csv',index_col = 0)
     y_val = pd.read_csv('../y_val.csv',index_col = 0)
     model1 = tf.keras.models.load_model('model1.keras')
@@ -85,14 +91,19 @@ def evaluate():
     predictions["P1"] = 0
     predictions.loc[predictions['Prediction'] > 0.5, "P1"] = 1
 
+    #Calculate and return accuracy, recall, precision and f1_score of the model
     accuracy = accuracy_score(y_val, predictions["P1"])
     recall = recall_score(y_val, predictions["P1"])
     precision = precision_score(y_val, predictions["P1"])
     f1 = f1_score(y_val, predictions["P1"])
     metrics = {"accuracy": accuracy, "recall":recall, "precision":precision,"f1_score": f1}
+
     return(metrics)
 
+#Function which uses trained model1 to predict P1
 def predict():
+    
+    #User passes as an argument the molecule's "smile" whose P1 it wants to predict
     parser = argparse.ArgumentParser()
     parser.add_argument("-smile", help="smile to predict",type=str)
     args = parser.parse_args()

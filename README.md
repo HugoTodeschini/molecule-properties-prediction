@@ -1,6 +1,8 @@
 # molecule-properties-prediction
 Deep learning models to predict molecule properties based on their "smiles"
 
+Description: This python package allows you to train and test a deep learning model that predicts the P1 property of molecules from their “smile”.
+
 Installation:
 
 Install all packages with the command:
@@ -23,6 +25,10 @@ You can also use "servier_predict" to make a prediction with your model.
 Pass as an argument the smile of the molecule on which you want to make the prediction.
 ex: "servier_predict -smile "Cn1ccnc1SCC(=O)Nc1ccc(Oc2ccccc2)cc1""
 
-API:
+Flask API:
 
-To launch the flask API execute the "api.py" file
+To launch the flask API of the model execute the "api.py" file with the "python api.py" command.
+The api has one route "predict" which allows you to make a prediction with the trained model.
+Once the api launched you can try it with the command: "curl -X POST http://127.0.0.1:5000/predict/NC(=O)NC(Cc1ccccc1)C(=O)O".
+You can replace "NC(=O)NC(Cc1ccccc1)C(=O)O" with the smile of the molecule that you want.
+The API will return the predicted P1 property of the molecule.
