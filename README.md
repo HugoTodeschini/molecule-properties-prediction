@@ -32,3 +32,9 @@ The api has one route "predict" which allows you to make a prediction with the t
 Once the api launched you can try it with the command: "curl -X POST http://127.0.0.1:5000/predict/NC(=O)NC(Cc1ccccc1)C(=O)O".
 You can replace "NC(=O)NC(Cc1ccccc1)C(=O)O" with the smile of the molecule that you want.
 The API will return the predicted P1 property of the molecule.
+
+Docker:
+
+You can build and launch the docker image of the projetct with "docker build -t servier ." and "docker run -p 5000:5000 servier"
+The docker image launch the Flask API.
+You can try it with "curl -X POST http://127.0.0.1:5000/predict/NC(=O)NC(Cc1ccccc1)C(=O)O"

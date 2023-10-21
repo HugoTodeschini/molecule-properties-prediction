@@ -7,6 +7,10 @@ model1 = tf.keras.models.load_model('model1.keras')
 
 app = Flask(__name__)
 
+@app.route('/')
+def hello():
+    return 'Hello, World'
+
 @app.route('/predict/<smile>', methods=['POST'])
 def predict_P1(smile):
     smile_array = prepare_smile(smile)
@@ -18,4 +22,4 @@ def predict_P1(smile):
     return(jsonify({"P1_predicted": P1_predicted}))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
